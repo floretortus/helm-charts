@@ -1,0 +1,11 @@
+## Predefined variables
+
+These are auxiliary variables/configurations defined in the library that can be reused wherever needed.
+
+| Dependency                 | Description                                                                                                                                                                                                                                                                    |
+|----------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `hlib.name`           | Takes the next value in order, depending on whether override value is specified `{{ .Chart.Name }}` -> `{{ .Values.nameOverride }}`.                                                                                                                                           |
+| `hlib.fullname`       | Takes the next value in order, depending on whether override values are specified `{{ .Release.Name }}-{{ .Chart.Name }}` -> `{{ .Values.nameOverride }}` (if includes .Release.Name) -> `{{ .Release.Name }}-{{ .Values.nameOverride }}` -> `{{ .Values.fullnameOverride }}`. |
+| `hlib.chart`          | Takes the next value  `{{ .Chart.Name }}-{{ .Chart.Version }}`.                                                                                                                                                                                                                |
+| `hlib.selectorLabels` | Renders the following labels: `app.kubernetes.io/name`, `app.kubernetes.io/instance`.                                                                                                                                                                                          |
+| `hlib.labels`         | Renders the following labels: all labels that `hlib.selectorLabels` has, `helm.sh/chart`, `app.kubernetes.io/version`, `app.kubernetes.io/part-of`, `app.kubernetes.io/managed-by`.                                                                                       |
