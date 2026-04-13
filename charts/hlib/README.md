@@ -1,6 +1,7 @@
 # hlib
 
-![Version: 0.1.1](https://img.shields.io/badge/Version-0.1.1-informational?style=flat-square) ![Type: library](https://img.shields.io/badge/Type-library-informational?style=flat-square)
+
+![Version: 0.1.1](https://img.shields.io/badge/Version-0.1.1-informational?style=flat-square) ![Type: library](https://img.shields.io/badge/Type-library-informational?style=flat-square) 
 [![GitHub license](https://img.shields.io/github/license/anatolek/helm-charts)](https://github.com/anatolek/helm-charts)
 
 A reusable Helm library chart that provides common Kubernetes template primitives for building consistent, maintainable charts across applications.
@@ -259,6 +260,7 @@ A default message string to be used when checking for a required value
 {{- $requiredMsg := include "hlib.default-check-required-msg" $ -}}
 {{ required (printf $requiredMsg "SOME.VALUE.NAME") .Values.some.value }}
 ```
+
 
 ## Using the Helm library
 
@@ -1201,6 +1203,7 @@ CLUSTER_CA=$(kubectl config view --raw --minify -o jsonpath='{.clusters[0].clust
 CLUSTER_NAMESPACE=<NAMESPACE_NAME>
 TOKEN=$(kubectl get secret <SECRET_NAME> -o jsonpath='{.data.token}' | base64 -d)
 
+
 cat <<EOF > debug-kubeconfig.yaml
 apiVersion: v1
 kind: Config
@@ -1345,6 +1348,7 @@ Override Service/Ingress References
 ```handlebars
 {{- include "hlib.notes.accessAppInfo" (dict "context" . "service" .Values.customService "ingress" .Values.specialIngress) }}
 ```
+
 
 ## Values
 
